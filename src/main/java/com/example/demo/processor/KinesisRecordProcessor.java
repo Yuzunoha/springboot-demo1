@@ -5,6 +5,8 @@ import software.amazon.kinesis.exceptions.InvalidStateException;
 import software.amazon.kinesis.exceptions.ShutdownException;
 import software.amazon.kinesis.lifecycle.events.*;
 import software.amazon.kinesis.processor.ShardRecordProcessor;
+import software.amazon.kinesis.retrieval.KinesisClientRecord;
+import java.nio.charset.StandardCharsets;
 
 @Slf4j
 public class KinesisRecordProcessor implements ShardRecordProcessor {
@@ -19,7 +21,10 @@ public class KinesisRecordProcessor implements ShardRecordProcessor {
 
     @Override
     public void processRecords(ProcessRecordsInput input) {
-        input.records().forEach(record -> log.info("Kinesis message を受信しましたああああああああああ！！: {}.", record));
+        for (KinesisClientRecord kinesisClientRecord : input.records()) {
+            var decoded = StandardCharsets.UTF_8.decode(kinesisClientRecord.data());
+            log.info("受信しましたああああああああああ！！ {}", decoded);
+        }
     }
 
     @Override
