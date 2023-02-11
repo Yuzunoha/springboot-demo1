@@ -11,5 +11,5 @@ import software.amazon.awssdk.regions.Region;
 public class KinesisConfigurationProperties {
 
     String stream;
-    Region region = Region.US_EAST_1;
+    Region region = Region.AP_NORTHEAST_1;
 }
