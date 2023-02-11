@@ -10,19 +10,17 @@ import software.amazon.awssdk.services.kinesis.KinesisAsyncClient;
 import software.amazon.kinesis.common.ConfigsBuilder;
 import software.amazon.kinesis.coordinator.Scheduler;
 import software.amazon.kinesis.retrieval.polling.PollingConfig;
-
 import java.util.UUID;
 
 @Configuration
 @RequiredArgsConstructor
 public class KinesisConfiguration {
 
-        private final KinesisConfigurationProperties properties;
-
         @Bean
         public Scheduler scheduler(KinesisAsyncClient kinesis, DynamoDbAsyncClient dynamodb,
                         CloudWatchAsyncClient cloudwatch) {
-                ConfigsBuilder configs = new ConfigsBuilder(properties.getStream(), properties.getStream(), kinesis,
+                String stream = LocalStackClientConfiguration.STREAM;
+                ConfigsBuilder configs = new ConfigsBuilder(stream, stream, kinesis,
                                 dynamodb, cloudwatch,
                                 UUID.randomUUID().toString(),
                                 KinesisRecordProcessor::new);
@@ -35,6 +33,6 @@ public class KinesisConfiguration {
                                 configs.metricsConfig(),
                                 configs.processorConfig(),
                                 configs.retrievalConfig().retrievalSpecificConfig(
-                                                new PollingConfig(properties.getStream(), kinesis)));
+                                                new PollingConfig(stream, kinesis)));
         }
 }
