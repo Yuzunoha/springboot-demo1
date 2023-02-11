@@ -1,18 +1,19 @@
 package com.example.demo.sukkiri.sample;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(getList());
+        for (String s : getList()) {
+            System.out.println(s);
+        }
     }
 
-    public static List getList() {
-        List<String> list = new ArrayList<String>();
+    public static List<String> getList() {
+        System.out.println("getList()が呼ばれた");
+        List<String> list = new ArrayList<>();
         list.add("アイテム1");
         list.add("アイテム2");
-        list.add("アイテム3");
         return list;
     }
 }
