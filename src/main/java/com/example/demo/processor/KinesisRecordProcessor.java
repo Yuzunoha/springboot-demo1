@@ -19,7 +19,7 @@ public class KinesisRecordProcessor implements ShardRecordProcessor {
 
     @Override
     public void processRecords(ProcessRecordsInput input) {
-        input.records().forEach(record -> log.info("Received Kinesis message: {}.", record));
+        input.records().forEach(record -> log.info("Kinesis message を受信しましたああああああああああ！！: {}.", record));
     }
 
     @Override
