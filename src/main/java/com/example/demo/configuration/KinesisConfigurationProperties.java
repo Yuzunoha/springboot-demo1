@@ -1,4 +1,4 @@
-package com.vreijsen.consumer.configuration;
+package com.example.demo.configuration;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

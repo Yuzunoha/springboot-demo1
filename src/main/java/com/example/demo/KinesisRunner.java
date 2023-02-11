@@ -1,4 +1,4 @@
-package com.vreijsen.consumer;
+package com.example.demo;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

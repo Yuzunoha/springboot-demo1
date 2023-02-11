@@ -1,0 +1,2 @@
+kinesis:
+  stream: 'some-data-stream'

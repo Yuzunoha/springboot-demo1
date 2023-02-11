@@ -1,6 +1,6 @@
-package com.vreijsen.consumer.configuration;
+package com.example.demo.configuration;
 
-import com.vreijsen.consumer.processor.KinesisRecordProcessor;
+import com.example.demo.processor.KinesisRecordProcessor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,26 +17,24 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class KinesisConfiguration {
 
-    private final KinesisConfigurationProperties properties;
+        private final KinesisConfigurationProperties properties;
 
-    @Bean
-    public Scheduler scheduler(KinesisAsyncClient kinesis, DynamoDbAsyncClient dynamodb, CloudWatchAsyncClient cloudwatch) {
-        ConfigsBuilder configs = new ConfigsBuilder(properties.getStream(), properties.getStream(), kinesis, dynamodb, cloudwatch,
-                UUID.randomUUID().toString(),
-                KinesisRecordProcessor::new
-        );
+        @Bean
+        public Scheduler scheduler(KinesisAsyncClient kinesis, DynamoDbAsyncClient dynamodb,
+                        CloudWatchAsyncClient cloudwatch) {
+                ConfigsBuilder configs = new ConfigsBuilder(properties.getStream(), properties.getStream(), kinesis,
+                                dynamodb, cloudwatch,
+                                UUID.randomUUID().toString(),
+                                KinesisRecordProcessor::new);
 
-        return new Scheduler(
-                configs.checkpointConfig(),
-                configs.coordinatorConfig(),
-                configs.leaseManagementConfig(),
-                configs.lifecycleConfig(),
-                configs.metricsConfig(),
-                configs.processorConfig(),
-                configs.retrievalConfig().retrievalSpecificConfig(
-                        new PollingConfig(properties.getStream(), kinesis)
-                )
-        );
-    }
+                return new Scheduler(
+                                configs.checkpointConfig(),
+                                configs.coordinatorConfig(),
+                                configs.leaseManagementConfig(),
+                                configs.lifecycleConfig(),
+                                configs.metricsConfig(),
+                                configs.processorConfig(),
+                                configs.retrievalConfig().retrievalSpecificConfig(
+                                                new PollingConfig(properties.getStream(), kinesis)));
+        }
 }
-
