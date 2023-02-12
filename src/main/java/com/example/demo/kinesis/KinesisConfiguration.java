@@ -52,7 +52,7 @@ public class KinesisConfiguration {
                 ConfigsBuilder configs = new ConfigsBuilder(STREAM, STREAM, kinesis,
                                 dynamodb, cloudwatch,
                                 UUID.randomUUID().toString(),
-                                KinesisRecordProcessor::new);
+                                MyShardRecordProcessor::new);
 
                 return new Scheduler(
                                 configs.checkpointConfig(),

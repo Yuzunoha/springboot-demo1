@@ -9,7 +9,7 @@ import software.amazon.kinesis.retrieval.KinesisClientRecord;
 import java.nio.charset.StandardCharsets;
 
 @Slf4j
-public class KinesisRecordProcessor implements ShardRecordProcessor {
+public class MyShardRecordProcessor implements ShardRecordProcessor {
 
     @Override
     /*
