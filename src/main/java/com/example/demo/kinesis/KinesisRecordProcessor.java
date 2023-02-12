@@ -1,4 +1,4 @@
-package com.example.demo.processor;
+package com.example.demo.kinesis;
 
 import lombok.extern.slf4j.Slf4j;
 import software.amazon.kinesis.exceptions.InvalidStateException;
