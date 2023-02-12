@@ -8,7 +8,10 @@ import software.amazon.kinesis.processor.ShardRecordProcessor;
 import software.amazon.kinesis.retrieval.KinesisClientRecord;
 import java.nio.charset.StandardCharsets;
 
+import org.springframework.stereotype.Component;
+
 @Slf4j
+@Component
 public class MyShardRecordProcessor implements ShardRecordProcessor {
 
     @Override
