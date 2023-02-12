@@ -2,6 +2,10 @@ package com.example.demo.kinesis;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.amazonaws.services.kinesis.producer.KinesisProducer;
+import com.amazonaws.services.kinesis.producer.KinesisProducerConfiguration;
+
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.cloudwatch.CloudWatchAsyncClient;
 import software.amazon.awssdk.services.dynamodb.DynamoDbAsyncClient;
@@ -65,5 +69,18 @@ public class KinesisConfiguration {
                                 configs.processorConfig(),
                                 configs.retrievalConfig().retrievalSpecificConfig(
                                                 new PollingConfig(STREAM, kinesis)));
+        }
+
+        @Bean
+        public KinesisProducer kinesisProducer() {
+                KinesisProducerConfiguration configuration = new KinesisProducerConfiguration()
+                                .setKinesisEndpoint("localhost")
+                                .setKinesisPort(4567)
+                                .setCloudwatchEndpoint("localhost")
+                                .setCloudwatchPort(4567)
+                                .setVerifyCertificate(false)
+                                .setRegion("ap-northeast-1");
+
+                return new KinesisProducer(configuration);
         }
 }

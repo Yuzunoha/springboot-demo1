@@ -27,6 +27,7 @@ dependencies {
 	implementation 'org.springframework:spring-context'
 	implementation "javax.servlet:javax.servlet-api:4.0.1"
 	implementation 'software.amazon.kinesis:amazon-kinesis-client:2.3.10'
+	implementation 'com.amazonaws:amazon-kinesis-producer:0.14.13'
 }
 
 tasks.named('test') {
