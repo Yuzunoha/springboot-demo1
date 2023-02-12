@@ -10,7 +10,6 @@ import software.amazon.awssdk.services.kinesis.KinesisAsyncClient;
 import software.amazon.kinesis.common.ConfigsBuilder;
 import software.amazon.kinesis.common.KinesisClientUtil;
 import software.amazon.kinesis.coordinator.Scheduler;
-import software.amazon.kinesis.processor.ShardRecordProcessor;
 import software.amazon.kinesis.retrieval.polling.PollingConfig;
 import java.net.URI;
 import java.util.UUID;
