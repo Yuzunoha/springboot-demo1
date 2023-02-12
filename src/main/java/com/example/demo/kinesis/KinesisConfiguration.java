@@ -75,9 +75,9 @@ public class KinesisConfiguration {
         public KinesisProducer kinesisProducer() {
                 KinesisProducerConfiguration configuration = new KinesisProducerConfiguration()
                                 .setKinesisEndpoint("localhost")
-                                .setKinesisPort(4567)
+                                .setKinesisPort(4566)
                                 .setCloudwatchEndpoint("localhost")
-                                .setCloudwatchPort(4567)
+                                .setCloudwatchPort(4566)
                                 .setVerifyCertificate(false)
                                 .setRegion("ap-northeast-1");
 
