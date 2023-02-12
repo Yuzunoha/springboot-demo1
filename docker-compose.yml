@@ -4,6 +4,8 @@ services:
   localstack:
     image: localstack/localstack
     ports:
-      - 4566:4566
+      - 4566:4566 # http; KCLはこっちでOK
+      - 4567:4567 # https; KPLにはこっちが必要である
+      - 4510-4559:4510-4559 # これらのポート開放は不要かも
     environment:
       - SERVICES=kinesis,dynamodb,cloudwatch
