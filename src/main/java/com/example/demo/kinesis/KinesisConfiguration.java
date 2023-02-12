@@ -1,6 +1,5 @@
 package com.example.demo.kinesis;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import software.amazon.awssdk.regions.Region;
@@ -16,7 +15,6 @@ import java.util.UUID;
 import software.amazon.kinesis.processor.ShardRecordProcessorFactory;
 
 @Configuration
-@RequiredArgsConstructor
 public class KinesisConfiguration {
 
         private static final URI LOCALSTACK_URI = URI.create("http://localhost:4566");
