@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.kinesis;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
