@@ -12,7 +12,7 @@ public class KinesisRunner {
 
     private final Scheduler scheduler;
 
-    @PostConstruct
+    // @PostConstruct
     public void run() {
         Thread schedulerThread = new Thread(scheduler);
         schedulerThread.setDaemon(true);
